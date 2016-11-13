@@ -1,0 +1,4 @@
+AMD64_SOURCES=..\amd64\psctxamd64.c     \
+              ..\amd64\psctxwrap.asm    \
+              ..\amd64\psldt.c          \
+              ..\amd64\psvdm.c

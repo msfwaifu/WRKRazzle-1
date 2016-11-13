@@ -1,0 +1,90 @@
+!IF 0
+
+Copyright (c) 2015  Microsoft Corporation
+Copyright (c) 2015  OpenNT Project
+
+Module Name:
+
+    sources.
+
+Abstract:
+
+    This file specifies the target component being built and the list of
+    sources files needed to build that component.  Also specifies optional
+    compiler switches and libraries that are unique for the component being
+    built.
+
+Author:
+
+    Stephanos Io (stephanos) 09-Jun-2015
+
+!ENDIF
+
+MAJORCOMP=ntos
+MINORCOMP=init
+
+TARGETNAME=init
+TARGETPATH=..\..\obj
+TARGETTYPE=LIBRARY
+
+SYNCHRONIZE_DRAIN=1
+SYNCHRONIZE_BLOCK=1
+
+INCLUDES=..;..\..\inc;$(BASE_INC_PATH);$(HALKIT_INC_PATH)
+
+C_DEFINES=$(C_DEFINES) -D_NTSYSTEM_
+
+NTTARGETFILE0=$(O)\$(NTTEST).def
+
+SOURCES=..\initos.c
+
+!if "$(NTTEST)"==""
+NTTEST=ntoskrnl
+!endif
+
+NTTARGETFILE1=$(O)\$(NTTEST).lib
+
+NTRES=..\..\PREBUILT\$(TARGET_DIRECTORY)\NTOSKRNL.res
+UMRES=..\..\PREBUILT\$(TARGET_DIRECTORY)\NTOSKRNL.res
+
+KERNEL_LIBS= \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\cache.lib     \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\config.lib    \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\dbgk.lib      \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\ex.lib        \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\FsRtl.lib     \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\fstub.lib     \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\init.lib      \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\io.lib        \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\iomgr.lib     \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\ke.lib        \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\lpc.lib       \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\mm.lib        \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\ob.lib        \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\perf.lib      \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\ps.lib        \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\raw.lib       \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\ntosrtl.lib   \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\ntosse.lib    \
+    $(TARGETPATH)\$(TARGET_DIRECTORY)\wmi.lib       \
+    \
+    ..\..\PREBUILT\$(TARGET_DIRECTORY)\BOOTVID.lib  \
+    ..\..\PREBUILT\$(TARGET_DIRECTORY)\HAL.lib      \
+    ..\..\PREBUILT\$(TARGET_DIRECTORY)\KDCOM.lib    \
+    ..\..\PREBUILT\$(TARGET_DIRECTORY)\ntoswrk.lib  \
+    ..\..\PREBUILT\$(TARGET_DIRECTORY)\SDBAPINT.lib \
+    \
+    $(O)\$(NTTEST).exp
+
+LINKER_FLAGS=$(LINKER_FLAGS)                \
+             -merge:PAGECONST=PAGE          \
+             -merge:INITCONST=INIT          \
+             -merge:INITDATA=INIT           \
+             -merge:PAGELKCONST=PAGELK      \
+             -merge:PAGEVRFY_CONST=PAGEVRFY
+
+LINKER_FLAGS=$(LINKER_FLAGS) -section:.rsrc,!d
+
+KERNEL_ALIGN_SWITCH=-align:0x1000
+
+BUFFER_OVERFLOW_CHECKS=0

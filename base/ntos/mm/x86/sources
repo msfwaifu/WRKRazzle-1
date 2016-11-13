@@ -1,0 +1,7 @@
+X86_SOURCES=..\x86\data386.c    \
+            ..\x86\init386.c    \
+            ..\x86\pae.asm      \
+            ..\x86\paesup.c     \
+            ..\x86\procpae.c    \
+            ..\x86\procx86.c    \
+            ..\x86\setmodfy.c

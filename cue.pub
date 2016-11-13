@@ -1,0 +1,40 @@
+//
+// WRKRazzle Public Aliases
+//
+
+base            cd /d %NTROOT%\base
+public          cd /d %NTROOT%\public
+
+internal        cd /d %NTROOT%\public\internal
+ddkinc          cd /d %NTROOT%\public\ddk\inc
+sdkinc          cd /d %NTROOT%\public\sdk\inc
+halkitinc       cd /d %NTROOT%\public\halkit\inc
+baseinc         cd /d %NTROOT%\public\internal\base\inc
+dsinc           cd /d %NTROOT%\public\internal\ds\inc
+sdktoolsinc     cd /d %NTROOT%\public\internal\sdktools\inc
+
+ntos            cd /d %NTROOT%\base\ntos
+
+ntosinc         cd /d %NTROOT%\base\ntos\inc
+arb             cd /d %NTROOT%\base\ntos\arb
+cache           cd /d %NTROOT%\base\ntos\cache
+config          cd /d %NTROOT%\base\ntos\config
+dbgk            cd /d %NTROOT%\base\ntos\dbgk
+ex              cd /d %NTROOT%\base\ntos\ex
+fsrtl           cd /d %NTROOT%\base\ntos\fsrtl
+fstub           cd /d %NTROOT%\base\ntos\fstub
+init            cd /d %NTROOT%\base\ntos\init
+io              cd /d %NTROOT%\base\ntos\io
+ke              cd /d %NTROOT%\base\ntos\ke
+lpc             cd /d %NTROOT%\base\ntos\lpc
+mm              cd /d %NTROOT%\base\ntos\mm
+ob              cd /d %NTROOT%\base\ntos\ob
+perf            cd /d %NTROOT%\base\ntos\perf
+ps              cd /d %NTROOT%\base\ntos\ps
+raw             cd /d %NTROOT%\base\ntos\raw
+rtl             cd /d %NTROOT%\base\ntos\rtl
+se              cd /d %NTROOT%\base\ntos\se
+vdm             cd /d %NTROOT%\base\ntos\vdm
+verifier        cd /d %NTROOT%\base\ntos\verifier
+wmi             cd /d %NTROOT%\base\ntos\wmi
+prebuilt        cd /d %NTROOT%\base\ntos\prebuilt\%NTARCH%
