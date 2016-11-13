@@ -1,0 +1,14 @@
+obj
+objfre
+objchk
+build.log
+buildfre.log
+buildchk.log
+build.wrn
+buildfre.wrn
+buildchk.wrn
+build.err
+buildfre.err
+buildchk.err
+
+/build.dat
